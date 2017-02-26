@@ -1,11 +1,3 @@
-/**
- * Perhion Bot
- * Logger Script
- * Created: 1/6/17
- * Last Updated: 2/4/17
- * Description: Print out messages to console when called for
- */
-
 //Print to console when a command is used
 var commandUsed = function commandUsed(bot, msg, command) { 
     console.log(new Date() + ": " + msg.author.username + "#" + msg.author.discriminator + " used the " + command + " command in #" + 

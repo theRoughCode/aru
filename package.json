@@ -1,6 +1,6 @@
 {
   "name": "aru",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Discord Bot Powered by Eris",
   "author": "PyroclasticMayhem",
   "license": "MIT",
@@ -25,6 +25,8 @@
   "dependencies": {
     "eris": "abalabahaha/eris#dev",
     "axios": "*",
-    "moment": "*"
+    "moment": "*",
+    "express": "*",
+    "ejs": "*"
   }
 }

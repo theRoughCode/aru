@@ -4,6 +4,8 @@
     "homepage": "",
     "description": "",
     "game_name": "",
+    "server_ip": "127.0.0.1",
+    "server_port": "8080",
     "streaming_status": false,
     "stream_url": "",
     "time_format": "ddd MMM DD YYYY | kk:mm:ss",

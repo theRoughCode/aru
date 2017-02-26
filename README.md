@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://github.com/perhion/perhionbot/blob/master/perhionbot.png?raw=true"/ height="200px" width="200px">
+  <img src="https://github.com/perhion/aru/blob/master/logo.png?raw=true" height="200px" width="200px">
 </p>
-# Perhion Bot
+# Aru
 A Discord Bot Powered by Eris.<br>
 A pre-hosted version of the bot can be added to your server at:<br>
 https://discordapp.com/oauth2/authorize?client_id=168080204063834112&scope=bot&permissions=0
@@ -46,27 +46,12 @@ https://discordapp.com/oauth2/authorize?client_id=168080204063834112&scope=bot&p
 1: Create a new file in the commands folder ending in .js<br>
 2: Use this as a template for your new command
 ```javascript
-/**
- * Perhion Bot
- * Custom Command
- * Created:
- * Last Updated:
- * Author:
- * Description:
- */
- 
-//Set up modules and files
 const logger = require("../utils/logger.js");
-
-module.exports = function (bot) {
-    //Ping Command
-    bot.registerCommand("printhi", (msg) => {
-        //Create the Message
-        bot.createMessage(msg.channel.id, "Hi!");
-        
-        //Print the info that the command was used to the console
-        var command = "PrintHi";
-        logger.commandUsed(bot, msg, command);
-    });
+module.exports = function(bot) {
+	bot.registerCommand("printhi", (msg) => {
+		bot.createMessage(msg.channel.id, "Hi!");
+		var command = "PrintHi";
+		logger.commandUsed(bot, msg, command);
+	});
 };
 ```
