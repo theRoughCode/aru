@@ -16,6 +16,8 @@ https://discordapp.com/oauth2/authorize?client_id=168080204063834112&scope=bot&p
     "homepage": "",
     "description": "",
     "game_name": "",
+    "server_ip": "127.0.0.1",
+    "server_port": "8080",
     "streaming_status": false,
     "stream_url": "",
     "time_format": "ddd MMM DD YYYY | kk:mm:ss",
@@ -31,6 +33,8 @@ https://discordapp.com/oauth2/authorize?client_id=168080204063834112&scope=bot&p
 `homepage` A website for the bot.<br>
 `description` A description for the bot.<br>
 `game_name` Name of the game the bot is set to play.<br>
+`server_ip` IP address for web server.<br>
+`server_port` Port for web server.<br>
 `streaming_status` If set to use the streaming status.<br>
 `stream_url` Twitch URL to stream.<br>
 `time_format` How time is displayed as.
