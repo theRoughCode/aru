@@ -49,7 +49,7 @@ module.exports = function(bot) {
 						text: bot.user.username
 					}
 				};
-				bot.createMessage(msg.channel.guild.id, {
+				bot.createMessage(msg.channel.id, {
 					embed: embed
 				});
 				var command = "Overwatch (to search for " + args + ") - Status: Success";
