@@ -1,6 +1,7 @@
 const eris = require("eris"),
 	fs = require("fs");
-const config = require("./config.json");
+const config = require("./config.json"),
+	logger = require("./utils/logger.js");
 const events = {
 	ready: require("./events/ready.js"),
 	guildCreate: require("./events/guildCreate.js"),
@@ -15,12 +16,15 @@ var bot = new eris.CommandClient(config.token, {}, {
 bot.on("ready", () => {
 	events.ready(bot);
 	fs.readdir(__dirname + "/./commands/", (err, commands) => {
-		commands.forEach(command => {
-			const realCommandz = require(__dirname + "/./commands/" + command);
-			realCommandz(bot);
-		});
-	})
-	//web();
+			if (err) {
+				logger.commandLoadError;
+			}
+			commands.forEach(command => {
+				const realCommandz = require(__dirname + "/./commands/" + command);
+				realCommandz(bot);
+			});
+		})
+		//web();
 });
 bot.on("guildCreate", guild => {
 	events.guildCreate(bot);
