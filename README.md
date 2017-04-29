@@ -4,6 +4,7 @@
 
 # Aru
 A Discord Bot Powered by Eris.
+
 A pre-hosted version of the bot can be added to your server at:
 https://discordapp.com/oauth2/authorize?client_id=168080204063834112&scope=bot&permissions=0
 
