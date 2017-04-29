@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://github.com/perhion/aru/blob/master/logo.png?raw=true" height="200px" width="200px">
 </p>
-# Aru
+# Aru<br>
 A Discord Bot Powered by Eris.<br>
 A pre-hosted version of the bot can be added to your server at:<br>
 https://discordapp.com/oauth2/authorize?client_id=168080204063834112&scope=bot&permissions=0
