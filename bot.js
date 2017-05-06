@@ -24,7 +24,7 @@ bot.on("ready", () => {
 				realCommandz(bot);
 			});
 		})
-		//web();
+		web();
 });
 bot.on("guildCreate", guild => {
 	events.guildCreate(bot);
