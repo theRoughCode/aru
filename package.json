@@ -1,9 +1,9 @@
 {
   "name": "aru",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A Discord Bot Powered by Eris",
   "author": "PyroclasticMayhem",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "main": "start.js",
   "homepage": "https://github.com/perhion/aru",
   "repository": {

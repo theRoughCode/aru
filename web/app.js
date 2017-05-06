@@ -4,8 +4,8 @@ const config = require("../config.json"),
 	ejs = require("ejs");
 module.exports = function() {
 	var app = express();
-	var serverIP = process.env.OPENSHIFT_NODEJS_IP || config.server_ip;
-	var serverPort = process.env.OPENSHIFT_NODEJS_PORT || config.server_port;
+	var serverIP = config.server_ip;
+	var serverPort = config.server_port;
 	app.set("view engine", "ejs");
 	app.set("views", __dirname + "/views");
 	app.use(express.static(__dirname + '/public'));
