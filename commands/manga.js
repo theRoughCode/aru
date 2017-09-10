@@ -1,14 +1,14 @@
 const axios = require("axios"),
 	logger = require("../utils/logger.js");
 module.exports = function(bot) {
-	bot.registerCommand("anime", (msg, args) => {
-		axios.get("https://kitsu.io/api/edge/anime?filter[text]=" + args)
+	bot.registerCommand("manga", (msg, args) => {
+		axios.get("https://kitsu.io/api/edge/manga?filter[text]=" + args)
 			.then(function(response) {
 				let embed = {
 					author: {
 						name: response.data.data[0].attributes.titles.en,
 						icon_url: "https://pbs.twimg.com/profile_images/807964865511862278/pIYOVdsl_400x400.jpg",
-						url: "https://kitsu.io/anime/" + response.data.data[0].attributes.slug
+						url: "https://kitsu.io/manga/" + response.data.data[0].attributes.slug
 					},
 					title: "Anime Information:",
 					color: 16765404,
@@ -53,12 +53,12 @@ module.exports = function(bot) {
 				bot.createMessage(msg.channel.id, {
 					embed: embed
 				});
-				var command = "Anime (to search for " + args + ") - Status: Success";
+				var command = "Manga (to search for " + args + ") - Status: Success";
 				logger.commandUsed(bot, msg, command);
 			})
 			.catch(function(error) {
-				bot.createMessage(msg.channel.id, "Anime not found :slight_frown:");
-				var command = "Anime (to search for " + args + ") Status: Failed";
+				bot.createMessage(msg.channel.id, "Manga not found :slight_frown:");
+				var command = "Manga (to search for " + args + ") - Status: Failed";
 				logger.commandUsed(bot, msg, command);
 			});
 	});

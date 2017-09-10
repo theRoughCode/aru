@@ -2,7 +2,7 @@ const axios = require("axios"),
 	logger = require("../utils/logger.js");
 module.exports = function(bot) {
 	bot.registerCommand("ow", (msg, args) => {
-		var Username = args[0].replace("#", "-"); //Change the # to - based on API
+		var Username = args[0].replace("#", "-");
 		var Platform = args[1];
 		var Region = args[2];
 		axios.get("https://api.lootbox.eu/" + Platform + "/" + Region + "/" + Username + "/profile")
