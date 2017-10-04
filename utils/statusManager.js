@@ -1,60 +1,71 @@
-const config = require("../config.json"),
-	logger = require("../utils/logger.js"),
-	axios = require("axios");
-var gameName = config.game_name,
-	streamingStatus = config.streaming_status,
-	streamURL = config.stream_url;
-var discordPWPostStatus = config.discord_pw_post,
-	discordPWKey = config.discord_pw_key,
-	carbonitexPostStatus = config.carbonitex_post,
-	carbonitexKey = config.carbonitex_key;
-var setStatus = function setStatus(bot) {
-	bot.shards.forEach(shard => {
-		if (streamingStatus == true) {
-			shard.editStatus({
-				name: gameName,
-				type: 1,
-				url: streamURL
-			});
-		} else {
-			shard.editStatus({
-				name: gameName,
-				type: 0
-			});
-		}
-	});
-	logger.statusUpdate(bot);
-};
-var postStats = function postStats(bot) {
-	if (discordPWPostStatus == true) {
-		axios({
-			method: "post",
-			url: "https://bots.discord.pw/api/bots/" + bot.user.id + "/stats",
-			headers: {
-				"Authorization": discordPWKey,
-				"content-type": "application/json"
-			},
-			data: {
-				"server_count": bot.guilds.size
-			}
-		});
-	}
-	if (carbonitexPostStatus == true) {
-		axios({
-			method: "post",
-			url: "https://www.carbonitex.net/discord/data/botdata.php",
-			headers: {
-				"content-type": "application/json"
-			},
-			data: {
-				"key": carbonitexKey,
-				"servercount": bot.guilds.size
-			}
-		});
-	}
-	logger.statsSent(bot);
-};
+/**
+ * Aru
+ * Status Manager
+ */
+
+// Set game status on Discord
+var setStatus = function setStatus (bot, logger, config) {
+  bot.shards.forEach(shard => {
+    // Check if there is a streaming url present, if so set status to streaming
+    if (config.stream_url) {
+      shard.editStatus({
+        name: config.game_name,
+        type: 1,
+        url: config.stream_url
+      })
+      
+      // Log status change
+      logger.info(new Date() + ': ' + 'Game status set to ' + config.game_name + ' and stream url set to ' + config.stream_url)
+    } else {
+      shard.editStatus({
+        name: config.game_name,
+        type: 0
+      })
+
+      // Log status change
+      logger.info(new Date() + ': ' + 'Game status set to ' + config.game_name)
+    }
+  })
+}
+
+// Post status to Carbonitex and discord.pw
+var postStats = function postStats (bot, logger, config, axios) {
+  if (config.discord_pw_key) {
+    axios({
+      method: 'post',
+      url: 'https://bots.discord.pw/api/bots/' + bot.user.id + '/stats',
+      headers: {
+        'Authorization': config.discord_pw_key,
+        'content-type': 'application/json'
+      },
+      data: {
+        'server_count': bot.guilds.size
+      }
+    })
+
+    // Log stat post
+    logger.info(new Date() + ': ' + 'Stats posted to discord.pw')
+  }
+
+  if (config.carbonitex_key) {
+    axios({
+      method: 'post',
+      url: 'https://www.carbonitex.net/discord/data/botdata.php',
+      headers: {
+        'content-type': 'application/json'
+      },
+      data: {
+        'key': config.carbonitex_key,
+        'servercount': bot.guilds.size
+      }
+    })
+
+    // Log stat post
+    logger.info(new Date() + ': ' + 'Stats posted to Carbonitex')
+  }
+}
+
 module.exports = {
-	setStatus: setStatus,
-	postStats: postStats
-};
+  setStatus: setStatus,
+  postStats: postStats
+}

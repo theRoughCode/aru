@@ -1,32 +1,34 @@
-const config = require("../config.json"),
-	logger = require("../utils/logger.js");
-var botDescription = config.description,
-	botHomepage = config.homepage,
-	prefix = config.prefix;
-module.exports = function(bot) {
-	bot.registerCommand('about', (msg) => {
-		let embed = {
-			color: 16765404,
-			author: {
-				name: bot.user.username,
-				icon_url: bot.user.avatarURL,
-				url: botHomepage
-			},
-			title: "Description:",
-			description: botDescription,
-			thumbnail: {
-				url: bot.user.avatarURL
-			},
-			timestamp: new Date(),
-			footer: {
-				icon_url: bot.user.avatarURL,
-				text: bot.user.username
-			}
-		};
-		bot.createMessage(msg.channel.id, {
-			embed: embed
-		});
-		var command = "About";
-		logger.commandUsed(bot, msg, command);
-	});
-};
+/**
+ * Aru
+ * About Command
+ */
+
+module.exports = function (bot, logger) {
+  bot.registerCommand('about', (msg) => {
+    let embed = {
+      color: 16765404,
+      author: {
+        name: bot.user.username,
+        icon_url: bot.user.avatarURL
+      },
+      title: 'Description:',
+      description: 'Aru is a modular Discord bot powered by Eris with miscellaneous functions. Our repository can be found at https://github.com/perhion/aru',
+      thumbnail: {
+        url: bot.user.avatarURL
+      },
+      timestamp: new Date(),
+      footer: {
+        icon_url: bot.user.avatarURL,
+        text: bot.user.username
+      }
+    }
+
+    // Create message
+    bot.createMessage(msg.channel.id, {
+      embed: embed
+    })
+
+    // Log command usage
+    logger.info(new Date() + ': ' + 'Logger command used by ' + msg.author.username + '#' + msg.author.discriminator + ' in ' + msg.channel.guild.name)    
+  })
+}

@@ -1,6 +1,12 @@
-const logger = require("../utils/logger.js"),
-	statusManager = require("../utils/statusManager.js");
-module.exports = function(bot, guild) {
-	statusManager.postStats(bot);
-	logger.guildLeave(bot, guild);
-};
+/**
+ * Aru
+ * Guild Delete Event
+ */
+
+module.exports = function (bot, guild, statusManager, logger, config, axios) {
+  // Post stats
+  statusManager.postStats(bot, logger, config, axios)
+
+  // Log event
+  logger.info(new Date() + ': ' + 'Bot has left ' + guild.name + ' ID#' + guild.id)
+}

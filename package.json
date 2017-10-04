@@ -4,7 +4,7 @@
 	"description": "A modular Discord bot powered by Eris with miscellaneous functions",
 	"author": "PyroclasticMayhem",
 	"license": "MIT",
-	"main": "start.js",
+	"main": "bot.js",
 	"homepage": "https://github.com/perhion/aru",
 	"repository": {
 		"type": "git",
@@ -14,21 +14,25 @@
 		"url": "https://github.com/perhion/aru/issues"
 	},
 	"scripts": {
-		"start": "node bot.js"
+		"start": "node bot.js",
+		"standard": "standard || exit 0"
 	},
 	"keywords": [
 		"discord",
 		"eris",
 		"node",
-		"bot"
+		"bot",
+		"modular",
+		"aru"
 	],
 	"dependencies": {
 		"eris": "abalabahaha/eris#dev",
 		"axios": "*",
 		"moment": "*",
-		"express": "*",
-		"ejs": "*",
 		"winston": "*",
 		"require-dir": "*"
+	},
+	"devDependencies": {
+		"standard": "*"
 	}
 }

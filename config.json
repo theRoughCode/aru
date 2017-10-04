@@ -1,17 +1,10 @@
 {
-    "prefix": "!",
-    "bot_owner": "",
-    "homepage": "",
-    "description": "",
-    "game_name": "",
-    "server_ip": "127.0.0.1",
-    "server_port": "8080",
-    "streaming_status": false,
-    "stream_url": "",
-    "time_format": "ddd MMM DD YYYY | kk:mm:ss",
-    "discord_pw_post": false,
-    "discord_pw_key": "",
-    "carbonitex_post": false,
-    "carbonitex_key": "",
-    "token": ""
+  "prefix": "!aru ",
+  "bot_owner_id": "",
+  "game_name": "",
+  "stream_url": "",
+  "time_format": "ddd MMM DD YYYY | kk:mm:ss",
+  "discord_pw_key": "",
+  "carbonitex_key": "",
+  "token": ""
 }
